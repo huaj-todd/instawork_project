@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import '../public/vendor/bootstrap/bootstrap.min.css'
+import '../public/vendor/fontawesome/css/all.min.css'
+import '../public/vendor/PageCSS.css'
 
 function App() {
   return (
