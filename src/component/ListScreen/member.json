@@ -1,0 +1,38 @@
+[
+  {"avatarImage": "https://improvephotography.com/wp-content/uploads/2017/07/DSCF5660-Edit-1.jpg",
+    "firstName": "Ji",
+  "lastName": "Hua",
+  "phoneNum": "123-456-7890",
+  "email": "1234567890@123.com",
+  "isAdmin": true
+  },
+  {"avatarImage": "https://improvephotography.com/wp-content/uploads/2017/07/DSCF5660-Edit-1.jpg",
+    "firstName": "Lee",
+    "lastName": "Ming",
+    "phoneNum": "123-456-1111",
+    "email": "1234567890@456.com",
+    "isAdmin": false
+  },
+  {"avatarImage": "https://improvephotography.com/wp-content/uploads/2017/07/DSCF5660-Edit-1.jpg",
+    "firstName": "Wong",
+    "lastName": "Ming",
+    "phoneNum": "111-111-7190",
+    "email": "1234567890@789.com",
+    "isAdmin": false
+  },
+  {"avatarImage": "https://improvephotography.com/wp-content/uploads/2017/07/DSCF5660-Edit-1.jpg",
+    "firstName": "James",
+    "lastName": "King",
+    "phoneNum": "123-456-7890",
+    "email": "jking@123.com",
+    "isAdmin": false
+  },
+  {"avatarImage": "https://improvephotography.com/wp-content/uploads/2017/07/DSCF5660-Edit-1.jpg",
+    "firstName": "James",
+    "lastName": "Kim",
+    "phoneNum": "123-456-7890",
+    "email": "jkim@123.com",
+    "isAdmin": false
+  }
+
+]
