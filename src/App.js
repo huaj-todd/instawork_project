@@ -1,27 +1,26 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
-import '../public/vendor/bootstrap/bootstrap.min.css'
-import '../public/vendor/fontawesome/css/all.min.css'
-import '../public/vendor/PageCSS.css'
-
+import './vendor/bootstrap/bootstrap.min.css'
+import './vendor/fontawesome/css/all.min.css'
+import './vendor/PageCSS.css'
+import HelloWorld from './component/helloWorld'
+import ListScreen from "./component/ListScreen/List";
+import {BrowserRouter, Route,Routes} from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <div className="container">
+            <Routes>
+                <Route path='/'>
+                    <Route index element = {<HelloWorld/>}/>
+                    <Route path='/helloworld' element = {<HelloWorld/>}/>
+                    <Route path='/list' element = {<ListScreen/>}/>
+                </Route>
+
+            </Routes>
+
+        </div>
+      </BrowserRouter>
   );
 }
 
