@@ -5,6 +5,7 @@ import './vendor/fontawesome/css/all.min.css'
 import './vendor/PageCSS.css'
 import HelloWorld from './component/helloWorld'
 import ListScreen from "./component/ListScreen/List";
+import AddScreen from "./component/AddScreen/Add";
 import {BrowserRouter, Route,Routes} from "react-router-dom";
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
                     <Route index element = {<HelloWorld/>}/>
                     <Route path='/helloworld' element = {<HelloWorld/>}/>
                     <Route path='/list' element = {<ListScreen/>}/>
+                    <Route path='/add' element = {<AddScreen/>}/>
                 </Route>
 
             </Routes>
