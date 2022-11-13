@@ -1,20 +1,13 @@
 import React from "react";
 import ListItem from "./ListItem";
 import {useSelector} from "react-redux";
-import memberReducer from "../reducer/memberReducer";
-import {combineReducers} from 'redux';
-import { legacy_createStore as createStore } from 'redux'
-import { Provider } from "react-redux";
 
-
-const reducer = combineReducers(memberReducer);
-const newStore = createStore(reducer);
 
 const ListScreen  = () =>{
     const members = useSelector(state=>state.members)
     return(
 
-        <Provider store={newStore}>
+        <>
                 <div className={'row'}>
                     <div className={'col-11'}>
                         <h1>Team Member</h1>
@@ -32,12 +25,12 @@ const ListScreen  = () =>{
                 </div>
                 <div className={'list-group'}>
                     {
-                        members.map(member =>{
+                        members?.map(member =>{
                             return(<ListItem member = {member}/>);
                         })
                     }
                 </div>
-        </Provider>
+        </>
 
     );
 };

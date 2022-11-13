@@ -2,6 +2,7 @@ import members from "../data/member.json"
 
 const memberReducer=(state = members, action)=>{
     switch (action.type){
+        /**
         case 'add-member':
             const newMember = {
                 avatarImage: "https://improvephotography.com/wp-content/uploads/2017/07/DSCF5660-Edit-1.jpg",
@@ -11,11 +12,13 @@ const memberReducer=(state = members, action)=>{
                 email:"1231231@1231231.com"
             }
             return[
-                newMember,
                 ...state,
+                newMember
             ];
+         */
         default:
-            return members
+            console.log(members);
+            return members;
     }
 }
 export default memberReducer;

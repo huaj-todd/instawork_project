@@ -9,26 +9,31 @@ import AddScreen from "./component/AddScreen/Add";
 
 import React from 'react';
 import {BrowserRouter, Route,Routes} from "react-router-dom";
-
-
-
+import memberReducer from "./component/reducer/memberReducer";
+import { combineReducers, legacy_createStore as createStore } from 'redux'
+import { Provider } from "react-redux";
+const reducer = combineReducers({members: memberReducer})
+const newStore = createStore(reducer);
 
 function App() {
   return (
       <>
-          <BrowserRouter>
-              <div className="container">
-                  <Routes>
-                      <Route path='/'>
-                          <Route index element = {<ListScreen/>}/>
-                          <Route path='/list' element = {<ListScreen/>}/>
-                          <Route path='/add' element = {<AddScreen/>}/>
-                      </Route>
+          <Provider store={newStore}>
+              <BrowserRouter>
+                  <div className="container">
+                      <Routes>
+                          <Route path='/'>
+                              <Route index element = {<ListScreen/>}/>
+                              <Route path='/list' element = {<ListScreen/>}/>
+                              <Route path='/add' element = {<AddScreen/>}/>
+                          </Route>
 
-                  </Routes>
+                      </Routes>
 
-              </div>
-          </BrowserRouter>
+                  </div>
+              </BrowserRouter>
+          </Provider>
+
       </>
 
   );

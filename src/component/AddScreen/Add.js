@@ -1,12 +1,14 @@
 import {useDispatch} from "react-redux";
 import React, {useState} from "react";
+import {Link} from "react-router-dom";
 
 const AddScreen = ()=>{
     let [FirstName,setFirstName] = useState('');
     let [LastName,setLastName] = useState('');
     let [Email,setEmail] = useState('');
     let [PhoneNum,setPhoneNum] = useState('');
-    let [admin,setAdmin] = useState('')
+    let [admin,setAdmin] = useState(true)
+    let [Member,setMember] = useState('')
     const dispatch = useDispatch();
     const addMemberClickHandler = () => {
         console.log(FirstName,LastName,Email,PhoneNum,admin)
@@ -65,9 +67,10 @@ const AddScreen = ()=>{
                     <div className={'list-group'}>
                         <div className={'list-group-item'}>
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="radio-role" id="radio-regular"/>
+                                <input className="form-check-input" type="radio" name="radio-role" id="radio-regular"
+                                       onChange={(e)=>setAdmin(false)}
+                                />
                                 <label className="form-check-label"
-                                       onChange={(e)=>setAdmin(e.target.value)}
                                        htmlFor="radio-regular">
                                     Regular - Can't delete member
                                 </label>
@@ -77,9 +80,9 @@ const AddScreen = ()=>{
                             <div className="form-check">
                                 <input className="form-check-input"
                                        type="radio" name="radio-role" id="radio-admin"
+                                       onChange={(e)=>setAdmin(true)}
                                        checked/>
                                 <label className="form-check-label"
-                                       onChange={(e)=>setAdmin(e.target.value)}
                                        htmlFor="radio-admin">
                                     Admin - Can delete member
                                 </label>
@@ -91,7 +94,10 @@ const AddScreen = ()=>{
 
                 </div>
             </div>
+            <Link to="/list">
                 <button className={'btn btn-primary'}onClick={addMemberClickHandler}>Save</button>
+            </Link>
+
 
         </>
     )
