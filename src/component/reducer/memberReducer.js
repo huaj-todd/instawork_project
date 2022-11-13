@@ -16,8 +16,9 @@ const memberReducer=(state = members, action)=>{
                 newMember
 
             ];
+        case 'delete-member':
+            return state.filter(member=>member.id != action.member.id)
         default:
-            console.log(members);
             return members;
     }
 }
