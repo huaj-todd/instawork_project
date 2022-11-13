@@ -2,7 +2,7 @@ import members from "../data/member.json"
 
 const memberReducer=(state = members, action)=>{
     switch (action.type){
-        /**
+
         case 'add-member':
             const newMember = {
                 avatarImage: "https://improvephotography.com/wp-content/uploads/2017/07/DSCF5660-Edit-1.jpg",
@@ -15,7 +15,6 @@ const memberReducer=(state = members, action)=>{
                 ...state,
                 newMember
             ];
-         */
         default:
             console.log(members);
             return members;
