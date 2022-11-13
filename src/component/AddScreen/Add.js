@@ -8,8 +8,9 @@ const AddScreen = ()=>{
     let [LastName,setLastName] = useState('');
     let [Email,setEmail] = useState('');
     let [PhoneNum,setPhoneNum] = useState('');
-    let [admin,setAdmin] = useState(true)
+     let [admin,setAdmin] = useState(true)
      */
+
     let[member,setMember] = useState({firstName:'',lastName:'',email:'',phoneNum:'',isAdmin: false})
     const dispatch = useDispatch();
     /**
@@ -55,22 +56,20 @@ const AddScreen = ()=>{
         }
         setMember(newMember)
     }
-    const adminStatueChangeHanderFalse = (event) =>{
+    const adminStatueChangeHandlerFalse = () =>{
         const newMember = {
             ...member,
             isAdmin :false
         }
         setMember(newMember)
     }
-    const adminStatueChangeHanderTrue = (event) =>{
+    const adminStatueChangeHandlerTrue = () =>{
         const newMember = {
             ...member,
             isAdmin :true
         }
         setMember(newMember)
     }
-
-
 
     return(
         <>
@@ -119,9 +118,7 @@ const AddScreen = ()=>{
                         <div className={'list-group-item'}>
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" name="radio-role" id="radio-regular"
-                                       value={member.isAdmin  = false}
-                                       onChange={adminStatueChangeHanderFalse}
-                                />
+                                       onChange={adminStatueChangeHandlerFalse}/>
                                 <label className="form-check-label"
                                        htmlFor="radio-regular">
                                     Regular - Can't delete member
@@ -132,9 +129,7 @@ const AddScreen = ()=>{
                             <div className="form-check">
                                 <input className="form-check-input"
                                        type="radio" name="radio-role" id="radio-admin"
-                                       value={member.isAdmin =true}
-                                       onChange={adminStatueChangeHanderTrue}
-                                       checked/>
+                                       onChange={adminStatueChangeHandlerTrue}/>
                                 <label className="form-check-label"
                                        htmlFor="radio-admin">
                                     Admin - Can delete member

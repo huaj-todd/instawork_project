@@ -26,7 +26,7 @@ const ListScreen  = () =>{
                 <div className={'list-group'}>
                     {
                         members?.map(member =>{
-                            return(<ListItem member = {member}/>);
+                            return(<ListItem member = {member} key={member.id}/>);
                         })
                     }
                 </div>
