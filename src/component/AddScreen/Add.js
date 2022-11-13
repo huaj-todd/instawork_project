@@ -3,15 +3,17 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom";
 
 const AddScreen = ()=>{
+    /**
     let [FirstName,setFirstName] = useState('');
     let [LastName,setLastName] = useState('');
     let [Email,setEmail] = useState('');
     let [PhoneNum,setPhoneNum] = useState('');
     let [admin,setAdmin] = useState(true)
-    let [Member,setMember] = useState('')
+     */
+    let[member,setMember] = useState({firstName:'',lastName:'',email:'',phoneNum:'',isAdmin: false})
     const dispatch = useDispatch();
+    /**
     const addMemberClickHandler = () => {
-        console.log(FirstName,LastName,Email,PhoneNum,admin)
         dispatch({type: 'add-member',
             firstName: FirstName,
             lastName:LastName,
@@ -19,7 +21,56 @@ const AddScreen = ()=>{
             phoneNum:PhoneNum,
             isAdmin: admin
         });
+    }*/
+    const addMemberHandler = () =>{
+        dispatch({type:'add-member',
+        member
+        })
     }
+    const firstNameChangeHander = (event) =>{
+        const newMember = {
+            ...member,
+            firstName: event.target.value
+        }
+        setMember(newMember)
+    }
+    const lastNameChangeHander = (event) =>{
+        const newMember = {
+            ...member,
+            lastName: event.target.value
+        }
+        setMember(newMember)
+    }
+    const phoneNumChangeHander = (event) =>{
+        const newMember = {
+            ...member,
+            phoneNum: event.target.value
+        }
+        setMember(newMember)
+    }
+    const emailChangeHander = (event) =>{
+        const newMember = {
+            ...member,
+            email: event.target.value
+        }
+        setMember(newMember)
+    }
+    const adminStatueChangeHanderFalse = (event) =>{
+        const newMember = {
+            ...member,
+            isAdmin :false
+        }
+        setMember(newMember)
+    }
+    const adminStatueChangeHanderTrue = (event) =>{
+        const newMember = {
+            ...member,
+            isAdmin :true
+        }
+        setMember(newMember)
+    }
+
+
 
     return(
         <>
@@ -31,16 +82,16 @@ const AddScreen = ()=>{
                     <div className="form-check">
                         <label htmlFor="exampleFormControlInput1"></label>
                         <input type="text"
-                               value={FirstName}
-                                onChange={(e)=>setFirstName(e.target.value)}
+                               value={member.firstName}
+                                onChange={firstNameChangeHander}
                                className="form-control" id="exampleFormControlInput1"
                                placeholder="Charlene"/>
                     </div>
                     <div className="form-check">
                         <label htmlFor="exampleFormControlInput2"></label>
                         <input type="text"
-                               value={LastName}
-                               onChange={(e)=>setLastName(e.target.value)}
+                               value={member.lastName}
+                               onChange={lastNameChangeHander}
                                className="form-control" id="exampleFormControlInput2"
                                placeholder="Pham"/>
                     </div>
@@ -48,16 +99,16 @@ const AddScreen = ()=>{
 
                         <label htmlFor="exampleFormControlInput3"></label>
                         <input type="email"
-                               value={Email}
-                               onChange={(e)=>setEmail(e.target.value)}
+                               value={member.email}
+                               onChange={emailChangeHander}
                                className="form-control" id="exampleFormControlInput3"
                                placeholder="charlene@instawork.com"/>
                     </div>
                     <div className="form-check">
                         <label htmlFor="exampleFormControlInput4"></label>
                         <input type="text"
-                               value={PhoneNum}
-                               onChange={(e)=>setPhoneNum(e.target.value)}
+                               value={member.phoneNum}
+                               onChange={phoneNumChangeHander}
                                className="form-control" id="exampleFormControlInput4"
                                placeholder="123-456-7890"/>
                     </div>
@@ -68,7 +119,8 @@ const AddScreen = ()=>{
                         <div className={'list-group-item'}>
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" name="radio-role" id="radio-regular"
-                                       onChange={(e)=>setAdmin(false)}
+                                       value={member.isAdmin  = false}
+                                       onChange={adminStatueChangeHanderFalse}
                                 />
                                 <label className="form-check-label"
                                        htmlFor="radio-regular">
@@ -80,7 +132,8 @@ const AddScreen = ()=>{
                             <div className="form-check">
                                 <input className="form-check-input"
                                        type="radio" name="radio-role" id="radio-admin"
-                                       onChange={(e)=>setAdmin(true)}
+                                       value={member.isAdmin =true}
+                                       onChange={adminStatueChangeHanderTrue}
                                        checked/>
                                 <label className="form-check-label"
                                        htmlFor="radio-admin">
@@ -95,7 +148,7 @@ const AddScreen = ()=>{
                 </div>
             </div>
             <Link to="/list">
-                <button className={'btn btn-primary'}onClick={addMemberClickHandler}>Save</button>
+                <button className={'btn btn-primary'}onClick={addMemberHandler}>Save</button>
             </Link>
 
 
