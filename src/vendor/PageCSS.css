@@ -17,6 +17,9 @@
 }
 .wd-icon-style{
     color: #0dcaf0;
-    margin-top: 30px;
-    margin-left: 50px;
+}
+.wd-round-btn{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
 }

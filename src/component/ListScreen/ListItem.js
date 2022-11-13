@@ -17,10 +17,13 @@ const ListItem = ({member  =    {
                 <div className={'col-3'}>
                     <img src={member.avatarImage} className={'wd-image-size'} alt="avatar"/>
                 </div>
-                <div className={'col-6'}>
+                <div className={'col-8'}>
                     <div className={'wd-member-text'}>{member.firstName} {member.lastName} {member.isAdmin ? "(admin)" : ""}</div>
                     <div className={'wd-member-text'}>{member.phoneNum}</div>
                     <div className={'wd-member-text'}>{member.email}</div>
+                </div>
+                <div className={'col'}>
+                    <span>Edit</span>
                 </div>
 
             </div>
