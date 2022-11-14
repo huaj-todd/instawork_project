@@ -6,10 +6,12 @@ import {Link} from "react-router-dom";
 const EditScreen=()=>{
 
     const members = useSelector(state=>state.members);
+
     const id_list = useParams();
     const id = parseInt(id_list.id);
     const oldMember = members.filter(m=>  m.id === id)[0];
     let [member,setMember] = useState({id:oldMember.id,firstName:oldMember.firstName,lastName:oldMember.lastName,email:oldMember.email,phoneNum:oldMember.phoneNum,isAdmin: oldMember.isAdmin});
+
     const dispatch = useDispatch()
     const deleteMemberhandler = () =>{
         dispatch({type:'delete-member',
