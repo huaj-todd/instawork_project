@@ -4,14 +4,20 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 const EditScreen=()=>{
-    const members = useSelector(state=>state.members)
-    let[member,setMember] = useState({firstName:'',lastName:'',email:'',phoneNum:'',isAdmin: false});
-    /**
-    let {id} = useParams()
-    const member_id= parseInt(id)
-    */
+
+    const members = useSelector(state=>state.members);
+    let id_list = useParams();
+    var oldMember;
+    if(id_list.id ===1 ||id_list.id===2||id_list.id===3){
+        oldMember = members.filter(m=>{return m.id === id_list.id})
+    }
+    else{
+        oldMember = members.filter(m=>{return m.id === id_list.id})[0];
+    }
+    console.log(oldMember)
+    let[member,setMember] = useState({firstName:oldMember.firstName,lastName:oldMember.lastName,email:oldMember.email,phoneNum:oldMember.phoneNum,isAdmin: oldMember.isAdmin});
     const dispatch = useDispatch()
-    const deletehandler= (member)=>{
+    const deleteMemberhandler= (member)=>{
         dispatch({
             type:'delete-member',
             member
@@ -24,10 +30,10 @@ const EditScreen=()=>{
         }
         dispatch(action)
     }
-    const firstNameChangeHander = (event) =>{
+    const firstNameChangeHandler = (event) =>{
         const newMember = {
             ...member,
-            firstName: event.target.value
+            firstName: event.target.value,
         }
         setMember(newMember)
     }
@@ -78,7 +84,7 @@ const EditScreen=()=>{
                             <label htmlFor="exampleFormControlInput1"></label>
                             <input type="text"
                                    value={member.firstName}
-                                   onChange={ firstNameChangeHander}
+                                   onChange={ firstNameChangeHandler}
                                    className="form-control" id="exampleFormControlInput1"
                                    placeholder="Charlene"/>
                         </div>
@@ -114,7 +120,8 @@ const EditScreen=()=>{
                             <div className={'list-group-item'}>
                                 <div className="form-check">
                                     <input className="form-check-input" type="radio" name="radio-role" id="radio-regular"
-                                           onChange={adminStatueChangeHandlerFalse}/>
+                                           onChange={adminStatueChangeHandlerFalse}
+                                           />
                                     <label className="form-check-label"
                                            htmlFor="radio-regular">
                                         Regular - Can't delete member
@@ -140,10 +147,10 @@ const EditScreen=()=>{
                 </div>
 
                 <Link to={"/"}>
-                    <button className={"btn btn-success"} >Edit</button>
+                    <button className={"btn btn-success"} onClick={()=>updateMemberHandler(member)}>Edit</button>
                 </Link>
                 <Link to={"/"}>
-                    <button className={"btn btn-danger"} >delete</button>
+                    <button className={"btn btn-danger"} onClick={()=>deleteMemberhandler(member)}>delete</button>
                 </Link>
             </>
 

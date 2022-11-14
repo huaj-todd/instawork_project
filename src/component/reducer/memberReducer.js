@@ -1,11 +1,10 @@
 import members from "../data/member.json"
-import { useSelector } from 'react-redux'
 
 const memberReducer=(state = members, action)=>{
     switch (action.type){
         case 'update-member':
             const updated_member = state.map(member =>{
-                const edit_member = member.id === action.member.id ? action.member :'';
+                const edit_member = member.id === action.member.id ? action.member : member;
                 return edit_member
             });
             return updated_member
@@ -23,7 +22,7 @@ const memberReducer=(state = members, action)=>{
 
             ];
         case 'delete-member':
-            return state.filter(member=>member !== action.member)
+            return state.filter(member=>member.id !== action.member.id)
         default:
             return members;
     }

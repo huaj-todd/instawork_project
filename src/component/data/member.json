@@ -2,10 +2,10 @@
   {"avatarImage": "https://improvephotography.com/wp-content/uploads/2017/07/DSCF5660-Edit-1.jpg",
     "id": 1,
     "firstName": "Ji",
-  "lastName": "Hua",
-  "phoneNum": "123-456-7890",
-  "email": "1234567890@123.com",
-  "isAdmin": true
+    "lastName": "Hua",
+    "phoneNum": "123-456-7890",
+    "email": "1234567890@123.com",
+    "isAdmin": true
   },
   {"avatarImage": "https://improvephotography.com/wp-content/uploads/2017/07/DSCF5660-Edit-1.jpg",
     "id": 2,
