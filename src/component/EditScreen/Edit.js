@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
@@ -9,20 +9,17 @@ const EditScreen=()=>{
     const id_list = useParams();
     const id = parseInt(id_list.id);
     const oldMember = members.filter(m=>  m.id === id)[0];
-    let[member,setMember] = useState({firstName:oldMember.firstName,lastName:oldMember.lastName,email:oldMember.email,phoneNum:oldMember.phoneNum,isAdmin: oldMember.isAdmin});
+    let [member,setMember] = useState({id:oldMember.id,firstName:oldMember.firstName,lastName:oldMember.lastName,email:oldMember.email,phoneNum:oldMember.phoneNum,isAdmin: oldMember.isAdmin});
     const dispatch = useDispatch()
-    const deleteMemberhandler= (member)=>{
-        dispatch({
-            type:'delete-member',
+    const deleteMemberhandler = () =>{
+        dispatch({type:'delete-member',
             member
         })
     }
-    const updateMemberHandler= (member)=>{
-        const action = {
-            type:'update-member',
+    const updateMemberHandler = () =>{
+        dispatch({type:'update-member',
             member
-        }
-        dispatch(action)
+        })
     }
     const firstNameChangeHandler = (event) =>{
         const newMember = {
@@ -143,10 +140,10 @@ const EditScreen=()=>{
                 </div>
 
                 <Link to={"/"}>
-                    <button className={"btn btn-success"} onClick={()=>updateMemberHandler(member)}>Edit</button>
+                    <button className={"btn btn-success"} onClick={updateMemberHandler}>Edit</button>
                 </Link>
                 <Link to={"/"}>
-                    <button className={"btn btn-danger"} onClick={()=>deleteMemberhandler(member)}>delete</button>
+                    <button className={"btn btn-danger"} onClick={deleteMemberhandler}>delete</button>
                 </Link>
             </>
 
