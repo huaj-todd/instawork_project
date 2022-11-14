@@ -9,7 +9,6 @@ const EditScreen=()=>{
     const id_list = useParams();
     const id = parseInt(id_list.id);
     const oldMember = members.filter(m=>  m.id === id)[0];
-    console.log(oldMember)
     let[member,setMember] = useState({firstName:oldMember.firstName,lastName:oldMember.lastName,email:oldMember.email,phoneNum:oldMember.phoneNum,isAdmin: oldMember.isAdmin});
     const dispatch = useDispatch()
     const deleteMemberhandler= (member)=>{
