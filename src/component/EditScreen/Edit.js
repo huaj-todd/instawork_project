@@ -14,7 +14,6 @@ const EditScreen=()=>{
     else{
         oldMember = members.filter(m=>{return m.id === id_list.id})[0];
     }
-    console.log(oldMember)
     let[member,setMember] = useState({firstName:oldMember.firstName,lastName:oldMember.lastName,email:oldMember.email,phoneNum:oldMember.phoneNum,isAdmin: oldMember.isAdmin});
     const dispatch = useDispatch()
     const deleteMemberhandler= (member)=>{
