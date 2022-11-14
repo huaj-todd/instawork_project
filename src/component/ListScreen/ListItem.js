@@ -1,5 +1,4 @@
 import React from 'react'
-import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 
 const ListItem = ({member  =    {
@@ -13,13 +12,7 @@ const ListItem = ({member  =    {
 }
 }
     ) =>{
-    const dispatch = useDispatch();
-    const deleteHandler = (member) =>{
-        dispatch({
-            type:'delete-member',
-            member
-        });
-    }
+
     return (
         <div className={'list-group-item'} key={member.id}>
             <div className={'row'}>
@@ -35,10 +28,7 @@ const ListItem = ({member  =    {
                     <Link to={`/${member.id}`}>
                         <button className={'btn btn-secondary'}>Edit</button>
                     </Link>
-
-                    <button className={'btn btn-secondary'} onClick={()=>deleteHandler(member)}>Delete</button>
                 </div>
-
             </div>
         </div>
     );
