@@ -7,8 +7,9 @@ const EditScreen=()=>{
 
     const members = useSelector(state=>state.members);
     let id_list = useParams();
+    let id = parseInt(id_list.id)
     var oldMember;
-    if(id_list.id ===1 ||id_list.id===2||id_list.id===3){
+    if(id ===1 ||id===2||id===3){
         oldMember = members.filter(m=>{return m.id === id_list.id})
     }
     else{
@@ -120,6 +121,7 @@ const EditScreen=()=>{
                                 <div className="form-check">
                                     <input className="form-check-input" type="radio" name="radio-role" id="radio-regular"
                                            onChange={adminStatueChangeHandlerFalse}
+                                           checked={!member.isAdmin}
                                            />
                                     <label className="form-check-label"
                                            htmlFor="radio-regular">
@@ -131,7 +133,8 @@ const EditScreen=()=>{
                                 <div className="form-check">
                                     <input className="form-check-input"
                                            type="radio" name="radio-role" id="radio-admin"
-                                           onChange={adminStatueChangeHandlerTrue}/>
+                                           onChange={adminStatueChangeHandlerTrue}
+                                    checked={member.isAdmin}/>
                                     <label className="form-check-label"
                                            htmlFor="radio-admin">
                                         Admin - Can delete member
