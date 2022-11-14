@@ -1,8 +1,10 @@
 import React from 'react'
 import {useDispatch} from "react-redux";
+import {Link} from "react-router-dom";
 
 const ListItem = ({member  =    {
     "avatarImage": "https://improvephotography.com/wp-content/uploads/2017/07/DSCF5660-Edit-1.jpg",
+    "id":1,
     "firstName": "Ji",
     "lastName": "Hua",
     "phoneNum": "123-456-7890",
@@ -19,7 +21,7 @@ const ListItem = ({member  =    {
         });
     }
     return (
-        <div className={'list-group-item'}>
+        <div className={'list-group-item'} key={member.id}>
             <div className={'row'}>
                 <div className={'col-3'}>
                     <img src={member.avatarImage} className={'wd-image-size'} alt="avatar"/>
@@ -30,7 +32,10 @@ const ListItem = ({member  =    {
                     <div className={'wd-member-text'}>{member.email}</div>
                 </div>
                 <div className={'col'}>
-                    <button className={'btn btn-secondary'}>Edit</button>
+                    <Link to={`/${member.id}`}>
+                        <button className={'btn btn-secondary'}>Edit</button>
+                    </Link>
+
                     <button className={'btn btn-secondary'} onClick={()=>deleteHandler(member)}>Delete</button>
                 </div>
 

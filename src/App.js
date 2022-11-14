@@ -6,7 +6,7 @@ import './vendor/PageCSS.css'
 
 import ListScreen from "./component/ListScreen/List";
 import AddScreen from "./component/AddScreen/Add";
-
+import EditScreen from "./component/EditScreen/Edit";
 import React from 'react';
 import {BrowserRouter, Route,Routes} from "react-router-dom";
 import memberReducer from "./component/reducer/memberReducer";
@@ -26,6 +26,8 @@ function App() {
                               <Route index element = {<ListScreen/>}/>
                               <Route path='/list' element = {<ListScreen/>}/>
                               <Route path='/add' element = {<AddScreen/>}/>
+                              <Route path='/:id' element={<EditScreen/>}/>
+
                           </Route>
 
                       </Routes>
