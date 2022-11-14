@@ -1,24 +1,43 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import './vendor/bootstrap/bootstrap.min.css'
+import './vendor/fontawesome/css/all.min.css'
+import './vendor/PageCSS.css'
+
+import ListScreen from "./component/ListScreen/List";
+import AddScreen from "./component/AddScreen/Add";
+import EditScreen from "./component/EditScreen/Edit";
+import React from 'react';
+import {BrowserRouter, Route,Routes} from "react-router-dom";
+import memberReducer from "./component/reducer/memberReducer";
+import { combineReducers, legacy_createStore as createStore } from 'redux'
+import { Provider } from "react-redux";
+const reducer = combineReducers({members: memberReducer})
+const newStore = createStore(reducer);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+          <Provider store={newStore}>
+              <BrowserRouter>
+                  <div className="container">
+                      <Routes>
+                          <Route path='/'>
+                              <Route index element = {<ListScreen/>}/>
+                              <Route path='/list' element = {<ListScreen/>}/>
+                              <Route path='/add' element = {<AddScreen/>}/>
+                              <Route path='/:id' element={<EditScreen/>}/>
+
+                          </Route>
+
+                      </Routes>
+
+                  </div>
+              </BrowserRouter>
+          </Provider>
+
+      </>
+
   );
 }
 

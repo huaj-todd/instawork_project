@@ -1,0 +1,25 @@
+.wd-member{
+    opacity: 0.5;
+}
+
+.wd-member-text{
+    font-size: 30px;
+    opacity: 0.6;
+    color: grey;
+}
+.wd-image-size{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-left: 50px;
+    margin-right:50px;
+    margin-top:10px;
+}
+.wd-icon-style{
+    color: #0dcaf0;
+}
+.wd-round-btn{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
