@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
@@ -6,15 +6,10 @@ import {Link} from "react-router-dom";
 const EditScreen=()=>{
 
     const members = useSelector(state=>state.members);
-    let id_list = useParams();
-    let id = parseInt(id_list.id)
-    var oldMember;
-    if(id ===1 ||id===2||id===3){
-        oldMember = members.filter(m=>{return m.id === id_list.id})
-    }
-    else{
-        oldMember = members.filter(m=>{return m.id === id_list.id})[0];
-    }
+    const id_list = useParams();
+    const id = parseInt(id_list.id);
+    const oldMember = members.filter(m=>  m.id === id)[0];
+    console.log(oldMember)
     let[member,setMember] = useState({firstName:oldMember.firstName,lastName:oldMember.lastName,email:oldMember.email,phoneNum:oldMember.phoneNum,isAdmin: oldMember.isAdmin});
     const dispatch = useDispatch()
     const deleteMemberhandler= (member)=>{
